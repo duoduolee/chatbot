@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mistral Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="chat-box">
+    <h2>🤖 Mistral Chatbot</h2>
+
+    {% if user_input %}
+      <div class="message user">
+        <strong>You:</strong><br>
+        {{ user_input }}
+      </div>
+    {% endif %}
+
+    {% if response %}
+      <div class="message assistant">
+        <strong>Assistant:</strong><br>
+        {{ response }}
+      </div>
+    {% endif %}
+
+    {% if error %}
+      <div class="message error">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form method="post" action="/chat" onsubmit="showLoading()">
+      <input type="text" name="user_input" placeholder="Ask me something..." required>
+      <button type="submit">Send</button>
+    </form>
+
+    <div id="loading" style="display:none; margin-top: 1em; text-align: center;">
+      ⏳ Thinking...
+    </div>
+  </div>
+
+  <script>
+    function showLoading() {
+      document.getElementById("loading").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
