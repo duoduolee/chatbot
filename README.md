@@ -9,3 +9,7 @@ This is a simple chatbot. After a question is given on the page, it will call th
 #### other
 
 Added later
+
+
+#### show
+![Demo Show](./demo_show.png)
